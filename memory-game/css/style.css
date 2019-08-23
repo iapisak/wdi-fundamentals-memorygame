@@ -15,7 +15,7 @@ nav {
 	padding: 20px 0;
 }
 
-nav a {
+nav a, span {
 	text-decoration: none;
 	margin: 0 20px;
 	color: #FFFFFF;
@@ -24,6 +24,11 @@ nav a {
 
 nav a:hover {
 	border: 2px solid white;
+}
+
+nav span:hover {
+	border: 2px solid white;
+	cursor: pointer;
 }
 
 main {

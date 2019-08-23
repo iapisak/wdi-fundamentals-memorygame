@@ -21,14 +21,33 @@ var cards = [
 	}
 ];
 
+//===========Reset Bord-Game==================//
+var resetGame = document.querySelector("span");
+	resetGame.addEventListener('click', resetGameBoard);
+
+function resetGameBoard() {
+	x = document.querySelectorAll("img");
+	for (var i=0; i<cards.length; i++) {
+		x[i].src='images/back.png';
+	}
+};
+//===========Reset Bord-Game==================//
+
 var cardsInPlay = [];
 
 function checkForMatch() {
-	if (cardsInPlay[0] === cardsInPlay[1]) {
-	  alert("You found a match!");
-	} else {
-	  alert("Sorry, try again.");
-	} 
+	if (cardsInPlay[0] !== cardsInPlay[1]) {
+		alert("Sorry, try again.");
+		cardsInPlay.splice(0,2);
+		resetGameBoard();		
+	} else console.log("You found a match!");
+		cardsInPlay.splice(0,2);		
+	// flipCard();
+	// if (cardsInPlay[0] === cardsInPlay[1]) {
+	//   alert("You found a match!");
+	// } else {
+	//   alert("Sorry, try again.");
+	// } 
 };
 
 function flipCard() {
