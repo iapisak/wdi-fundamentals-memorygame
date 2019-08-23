@@ -26,6 +26,8 @@ var resetGame = document.querySelector("span");
 	resetGame.addEventListener('click', resetGameBoard);
 
 function resetGameBoard() {
+	scoreGame = 0;
+	yourScore();
 	x = document.querySelectorAll("img");
 	for (var i=0; i<cards.length; i++) {
 		x[i].src='images/back.png';
@@ -33,15 +35,27 @@ function resetGameBoard() {
 };
 //===========Reset Bord-Game==================//
 
+//===========Adding Score===========//
+function yourScore() {
+	document.getElementById("score").innerHTML = "your score = " + scoreGame;
+};
+//===========Adding Score===========//
+
 var cardsInPlay = [];
+var scoreGame = 0;
+
 
 function checkForMatch() {
 	if (cardsInPlay[0] !== cardsInPlay[1]) {
 		alert("Sorry, try again.");
 		cardsInPlay.splice(0,2);
 		resetGameBoard();		
-	} else console.log("You found a match!");
-		cardsInPlay.splice(0,2);		
+	} else {console.log("You found a match!");
+		cardsInPlay.splice(0,2);
+		scoreGame+=1;
+		yourScore();
+		
+	};
 	// flipCard();
 	// if (cardsInPlay[0] === cardsInPlay[1]) {
 	//   alert("You found a match!");
@@ -73,6 +87,7 @@ function createBoard() {
 };
 
 createBoard();
+yourScore();
 
 
 
